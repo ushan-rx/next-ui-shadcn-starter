@@ -1,9 +1,14 @@
 import Image from 'next/image';
+import { Button as ButtonH } from '@heroui/react';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
+import { Calendar } from '@/components/ui/calendar';
+import { Card, Skeleton } from '@heroui/react';
 
 export default function Home() {
   return (
-    <div className='grid min-h-screen grid-rows-[20px_1fr_20px] place-items-center gap-16 p-8 pb-20 font-[family-name:var(--font-geist-sans)] sm:p-20'>
-      <main className='row-start-2 flex flex-col items-center gap-8 sm:items-start'>
+    <div className='grid min-h-screen grid-rows-[20px_1fr_20px] place-items-center gap-2 p-8 pb-20 font-[family-name:var(--font-geist-sans)] sm:p-20'>
+      <main className='row-start-2 flex flex-col items-center gap-4 sm:items-start'>
         <Image
           className='dark:invert'
           src='/next.svg'
@@ -12,90 +17,79 @@ export default function Home() {
           height={38}
           priority
         />
-        <ol className='list-inside list-decimal text-center font-[family-name:var(--font-geist-mono)] text-sm sm:text-left'>
-          <li className='mb-2'>
-            Get started by editing{' '}
-            <code className='rounded bg-black/[.05] px-1 py-0.5 font-semibold dark:bg-white/[.06]'>
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+        <p className='text-center text-lg font-bold sm:text-left'>
+          Welcome to the Hero UI (Next UI) + Shadcn UI Starter Project
+        </p>
+        <div className='flex flex-col gap-2'>
+          {/* Information Section */}
+          <div className='space-y-2 rounded-lg p-4 shadow-md sm:p-8'>
+            <h2 className='text-lg font-bold'>Important Information</h2>
+            <ul className='list-disc pl-5 text-sm leading-6'>
+              <li>
+                Components from both Hero UI and Shadcn UI work fine together,
+                but there are some incompatibilities in their default styles.
+              </li>
+              <li>
+                These issues arise when using the same default component from
+                both libraries on one page. Try to avoid this scenario.
+              </li>
+              <li>
+                A default theme system is being developed to ensure both
+                libraries work seamlessly. If you create your own theme, this
+                won't be an issue.
+              </li>
+              <li>
+                This project is new, so there might be unknown bugs. If you
+                encounter any, please make an issue or email me at{' '}
+                <a
+                  href='mailto:ushan.r.senarathna@gmail.com'
+                  className='text-blue-500 underline'
+                >
+                  ushan.r.senarathna@gmail.com
+                </a>
+                .
+              </li>
+            </ul>
+          </div>
 
-        <div className='flex flex-col items-center gap-4 sm:flex-row'>
-          <a
-            className='flex h-10 items-center justify-center gap-2 rounded-full border border-solid border-transparent bg-foreground px-4 text-sm text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] sm:h-12 sm:px-5 sm:text-base'
-            href='https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            <Image
-              className='dark:invert'
-              src='/vercel.svg'
-              alt='Vercel logomark'
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className='flex h-10 items-center justify-center rounded-full border border-solid border-black/[.08] px-4 text-sm transition-colors hover:border-transparent hover:bg-[#f2f2f2] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] sm:h-12 sm:min-w-44 sm:px-5 sm:text-base'
-            href='https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            Read our docs
-          </a>
+          {/* Component Previews */}
+          <div className='flex gap-8'>
+            <div className='text-center'>
+              <span>Shadcn Calendar</span>
+              <Calendar />
+            </div>
+            <div className='text-center'>
+              <span>HeroUi Skeleton</span>
+              <Card className='w-[200px] space-y-5 p-4' radius='lg'>
+                <Skeleton className='rounded-lg'>
+                  <div className='h-24 rounded-lg bg-default-300' />
+                </Skeleton>
+                <div className='space-y-3'>
+                  <Skeleton className='w-3/5 rounded-lg'>
+                    <div className='h-3 w-3/5 rounded-lg bg-default-200' />
+                  </Skeleton>
+                  <Skeleton className='w-4/5 rounded-lg'>
+                    <div className='h-3 w-4/5 rounded-lg bg-default-200' />
+                  </Skeleton>
+                  <Skeleton className='w-2/5 rounded-lg'>
+                    <div className='h-3 w-2/5 rounded-lg bg-default-300' />
+                  </Skeleton>
+                </div>
+              </Card>
+            </div>
+            {/* Buttons to navigate */}
+            <div className='flex flex-col gap-8'>
+                <span className='text-center'>Buttons</span>
+                <ButtonH color='primary'>
+                  <Link href={'/test-hero'}>Hero ui</Link>
+                </ButtonH>
+                <Button variant={'default'}>
+                  <Link href={'/test-shadcn'}>Shadcn ui</Link>
+                </Button>
+            </div>
+          </div>
         </div>
       </main>
-      <footer className='row-start-3 flex flex-wrap items-center justify-center gap-6'>
-        <a
-          className='flex items-center gap-2 hover:underline hover:underline-offset-4'
-          href='https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          <Image
-            aria-hidden
-            src='/file.svg'
-            alt='File icon'
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className='flex items-center gap-2 hover:underline hover:underline-offset-4'
-          href='https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          <Image
-            aria-hidden
-            src='/window.svg'
-            alt='Window icon'
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className='flex items-center gap-2 hover:underline hover:underline-offset-4'
-          href='https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          <Image
-            aria-hidden
-            src='/globe.svg'
-            alt='Globe icon'
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
   );
 }
