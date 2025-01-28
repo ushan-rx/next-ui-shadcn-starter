@@ -13,3 +13,12 @@
  test-results
  junit.xml
  docs
+
+eslint.config.mjs
+tailwind.config.ts
+next.config.ts
+.prettierrc.json
+src/lib/utils.ts
+lint-staged.config.ts
+components.json
+tsconfig.json
