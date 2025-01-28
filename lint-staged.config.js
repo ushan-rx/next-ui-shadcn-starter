@@ -1,7 +1,7 @@
- /* eslint-env node */
- const path = require('path');
- const formatCommand = 'prettier --check .';
+/* eslint-env node */
+const path = require('path');
+const formatCommand = 'prettier --check .';
 
- module.exports = {
-   '*': formatCommand,
- };
+module.exports = {
+  '*': formatCommand,
+};
